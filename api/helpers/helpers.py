@@ -3,6 +3,15 @@
 import os
 
 from ..admin.views import admin
+from ..article.views import article
+from ..auth.views import auth
+from ..author.views import author
+from ..email.views import email
+from ..flag.views import flag
+from ..home.views import home
+from ..moderator.views import moderator
+from ..report.views import report
+from ..suspend.views import suspend
 
 
 def set_flask_environment(app) -> str:
@@ -42,3 +51,12 @@ def set_flask_environment(app) -> str:
 def register_blueprints(app):
     """Register the application blueprints."""
     app.register_blueprint(admin, url_prefix="/api/v1/admin")
+    app.register_blueprint(auth, url_prefix="/api/v1/auth")
+    app.register_blueprint(article, url_prefix="/api/v1/article")
+    app.register_blueprint(author, url_prefix="/api/v1/author")
+    app.register_blueprint(email, url_prefix="/api/v1/email")
+    app.register_blueprint(flag, url_prefix="/api/v1/flag")
+    app.register_blueprint(home, url_prefix="/api/v1/home")
+    app.register_blueprint(moderator, url_prefix="/api/v1/moderator")
+    app.register_blueprint(report, url_prefix="/api/v1/report")
+    app.register_blueprint(suspend, url_prefix="/api/v1/suspend")
