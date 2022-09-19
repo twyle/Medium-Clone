@@ -3,6 +3,7 @@
 from flask import Flask, jsonify
 
 from .helpers.error_handlers import register_error_handlers
+from .helpers.helpers import set_flask_environment
 
 
 def create_app():
@@ -10,6 +11,8 @@ def create_app():
     app = Flask(__name__)
 
     register_error_handlers(app)
+
+    set_flask_environment(app)
 
     @app.route("/", methods=["GET"])
     def health_check():
