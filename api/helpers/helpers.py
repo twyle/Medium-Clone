@@ -2,6 +2,8 @@
 """This module declares the application helpers."""
 import os
 
+from ..admin.views import admin
+
 
 def set_flask_environment(app) -> str:
     """Set the flask development environment.
@@ -35,3 +37,8 @@ def set_flask_environment(app) -> str:
         return "development"
 
     return os.environ["FLASK_ENV"]
+
+
+def register_blueprints(app):
+    """Register the application blueprints."""
+    app.register_blueprint(admin, url_prefix="/api/v1/admin")

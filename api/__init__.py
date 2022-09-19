@@ -2,8 +2,9 @@
 """This package contains all the application code."""
 from flask import Flask, jsonify
 
+from .extensions.extensions import register_extensions
 from .helpers.error_handlers import register_error_handlers
-from .helpers.helpers import set_flask_environment
+from .helpers.helpers import register_blueprints, set_flask_environment
 
 
 def create_app():
@@ -18,6 +19,9 @@ def create_app():
     def health_check():
         """Check if application is up."""
         return jsonify({"Hello": "From the blog application!"}), 200
+
+    register_extensions(app)
+    register_blueprints(app)
 
     # shell context for flask cli
     app.shell_context_processor({"app": app})
