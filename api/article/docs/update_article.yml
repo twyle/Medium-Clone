@@ -1,0 +1,40 @@
+description: Update an Article
+tags:
+  - Article
+produces:
+  - "application/json"
+parameters:
+  - name: "Author id"
+    description: "The Author's id"
+    required: true
+    in: "query"
+  - name: "Article id"
+    description: "The Article's id"
+    required: true
+    in: "formData"
+  - name: "Article Title"
+    description: "The Title of the Article"
+    required: true
+    in: "formData"
+  - name: "Content"
+    description: "The Article Content"
+    required: true
+    in: "formData"
+    type: string
+  - name: "Tags"
+    description: "The Article Tags"
+    required: true
+    in: "formData"
+    type: string
+  - name: "Header Image"
+    description: "The article banner image"
+    required: false
+    in: "formData"
+    type: file
+
+responses:
+  201:
+    description: When an article is successfylly updated.
+
+  400:
+    description: Fails to update article due to bad request data
