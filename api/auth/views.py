@@ -24,6 +24,17 @@ def register_author():
     return jsonify({"auth": "register author"}), 200
 
 
+@swag_from(
+    "./docs/register_moderator.yml",
+    endpoint="auth.register_moderator",
+    methods=["POST"],
+)
+@auth.route("/register/moderator", methods=["POST"])
+def register_moderator():
+    """Register a moderator."""
+    return jsonify({"auth": "register moderator"}), 200
+
+
 @auth.route("/reset_password", methods=["POST"])
 @swag_from(
     "./docs/password_reset.yml", endpoint="auth.reset_password", methods=["POST"]
