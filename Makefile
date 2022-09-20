@@ -18,3 +18,15 @@ commitizen-init:
 
 bump-tag:
 	@cz bump --check-consistency --changelog
+
+lint:
+	@black .
+	@flake8
+	@pylint --rcfile=.pylintrc ./api
+
+test:
+	@python -m pytest --disable-pytest-warnings
+
+coverage:
+	@coverage run -m pytest --disable-pytest-warnings
+	@coverage report -m
