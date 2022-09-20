@@ -29,6 +29,13 @@ def delete_author():
     return jsonify({"author": "delete"}), 200
 
 
+@swag_from("./docs/follow_author.yml", endpoint="author.follow_author", methods=["GET"])
+@author.route("/follow", methods=["GET"])
+def follow_author():
+    """Follow the author with given id."""
+    return jsonify({"author": "follow"}), 200
+
+
 @swag_from(
     "./docs/get_all_authors.yml", endpoint="author.get_all_authors", methods=["GET"]
 )
