@@ -57,8 +57,8 @@ jobs:
     - name: Run the pylint linter
       run: pylint --rcfile=.pylintrc ./api
 
-    - name: Run the mypy linter
-      run: mypy -p api
+    # - name: Run the mypy linter
+    #   run: mypy -p api
 
     - name: Create the Test Environment variables
       run: |

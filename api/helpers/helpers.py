@@ -6,7 +6,7 @@ from ..admin.views import admin
 from ..article.views import article
 from ..auth.views import auth
 from ..author.views import author
-from ..email.views import email
+from ..email.views import mail
 from ..flag.views import flag
 from ..home.views import home
 from ..moderator.views import moderator
@@ -54,7 +54,7 @@ def register_blueprints(app):
     app.register_blueprint(auth, url_prefix="/api/v1/auth")
     app.register_blueprint(article, url_prefix="/api/v1/article")
     app.register_blueprint(author, url_prefix="/api/v1/author")
-    app.register_blueprint(email, url_prefix="/api/v1/email")
+    app.register_blueprint(mail, url_prefix="/api/v1/mail")
     app.register_blueprint(flag, url_prefix="/api/v1/flag")
     app.register_blueprint(home, url_prefix="/api/v1/home")
     app.register_blueprint(moderator, url_prefix="/api/v1/moderator")
