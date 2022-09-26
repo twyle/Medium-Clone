@@ -26,3 +26,5 @@
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=jl3b4eLKiP8" target="_blank">
  <img src="assets/videos/blog-service.gif" />
 </a>
+
+****************STILL UNDER DEVELOPMENT***************************
