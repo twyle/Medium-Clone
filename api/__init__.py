@@ -2,9 +2,8 @@
 """This package contains all the application code."""
 from flask import Flask, jsonify
 
-from .extensions.extensions import register_extensions
-from .helpers.error_handlers import register_error_handlers
-from .helpers.helpers import register_blueprints, set_flask_environment
+from .extensions import register_extensions
+from .helpers import register_blueprints, register_error_handlers, set_flask_environment
 
 
 def create_app():

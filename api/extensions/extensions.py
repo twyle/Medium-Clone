@@ -3,8 +3,14 @@
 from flasgger import LazyJSONEncoder, LazyString, Swagger
 from flask import request
 from flask_cors import CORS
+from flask_marshmallow import Marshmallow
+from flask_migrate import Migrate
+from flask_sqlalchemy import SQLAlchemy
 
 cors = CORS()
+db = SQLAlchemy()
+ma = Marshmallow()
+migrate = Migrate()
 
 swagger_template = {
     "swagger": "2.0",
@@ -57,3 +63,6 @@ def register_extensions(app):
     cors.init_app(app)
     app.json_encoder = LazyJSONEncoder
     swagger.init_app(app)
+    db.init_app(app)
+    ma.init_app(app)
+    migrate.init_app(app, db)

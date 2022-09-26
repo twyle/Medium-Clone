@@ -1,0 +1,45 @@
+description: Report the article with the given id
+tags:
+  - Report
+produces:
+  - "application/json"
+security:
+  - APIKeyHeader: [ 'articleization' ]
+parameters:
+  - in: query
+    description: The query should contain the reporting article id
+    required: true
+    name: 'reporter id'
+    type: 'string'
+  - in: query
+    description: The query should contain the id of article being reported
+    required: true
+    name: 'article id'
+    type: 'string'
+  - name: body
+    description: The body should contain the reason for the report.
+    in: body
+    required: true
+    schema:
+      type: object
+      required:
+        - "reason"
+        - "article id"
+      properties:
+        reason:
+          type: "string"
+          example: "Contains offensive image!"
+        article id:
+          type: "string"
+          example: "1"
+responses:
+  200:
+    description: When an article is successfully reported.
+
+  400:
+    description: Fails to report an article due to bad request data
+
+  401:
+    description: Fails to report an article due to missing articleization headers.
+  422:
+    description: Fails to report an article due to missing segments in articleization header.

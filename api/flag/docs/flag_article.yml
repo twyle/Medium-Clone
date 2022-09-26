@@ -1,0 +1,41 @@
+description: Flag the article with the given id
+tags:
+  - Flag
+produces:
+  - "application/json"
+security:
+  - APIKeyHeader: [ 'articleization' ]
+parameters:
+  - in: query
+    description: The query should contain the moderator id
+    required: true
+    name: 'moderator id'
+    type: 'string'
+  - in: query
+    description: The query should contain the id of article being flagged
+    required: true
+    name: 'article id'
+    type: 'string'
+  - name: body
+    description: The body should contain the reason for the flag.
+    in: body
+    required: true
+    schema:
+      type: object
+      required:
+        - "reason"
+      properties:
+        reason:
+          type: "string"
+          example: "Contains offensive image!"
+responses:
+  200:
+    description: When an article is successfully flaged.
+
+  400:
+    description: Fails to flag an article due to bad request data
+
+  401:
+    description: Fails to flag an article due to missing articleization headers.
+  422:
+    description: Fails to flag an article due to missing segments in articleization header.
