@@ -24,15 +24,15 @@
 ![](assets/images/blog.png)
 
 ## Project Overview
-This is a web application that makes the managemnet of users easier. It enables a userto register for an account using their username, a password and their email address. Once registered, the user has to confirm their email address, then they can log in to receive an authorization token. The authorization token enables them to access protected routes.
+This is a web application that enables an author to register for an account, create, edit, view and delete blog posts. The applicatopn also provides for an admin, who can suspend offensive articles and authors, a moderator who can flag articles and authors as odffensive. The application provides a payment feature that only allows those whoe've payed to view articles. The application provides a custom content recommendation system as well as a content moderation system.
 
 ## Working
 
 It's pretty easy to use the application. On the home page (http://localhost:5000/apidocs):
 
  1. Create an account (post details through register route)
- 2. Send a confirmation email (post email address and user id theough the send_confirm_email route)
- 3. Confirm email address (submit the user id token from step 2)
+ 2. Send a confirmation email (post email address and author id theough the send_confirm_email route)
+ 3. Confirm email address (submit the author id and activation token from step 2)
  4. Log in using the login route (submit your email and password)
  5. Use the access token from step 4 to authorize yourself.
  6. Access other functionalities such as user update, viewing, deletion.
@@ -40,15 +40,19 @@ It's pretty easy to use the application. On the home page (http://localhost:5000
 
 <!-- Click on the video below to [watch the application demo on YouTube](https://youtu.be/jl3b4eLKiP8): -->
 
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=jl3b4eLKiP8" target="_blank">
+<!-- <a href="http://www.youtube.com/watch?feature=player_embedded&v=jl3b4eLKiP8" target="_blank">
  <img src="assets/videos/user-management-service-v3.gif" />
-</a>
+</a> -->
+
+<p align=center>
+  <img src="assets/videos/blog-service.gif" />
+</p>
 
  ## Features
 
 This application has several features including:
 
-1. Deployed to an AWS EBS using Codedeploy.
+1. Deployed to an AWS ECS using Codedeploy.
 2. Versioned using git and Hosted on GitHub.
 3. Auto-deployed to AWS using AWS CodePipeline.
 4. Uses gunicorn as the application servers.
@@ -64,13 +68,13 @@ Here is how to set up the application locally:
   1. Clone the application repo:</br>
 
       ```sh
-      git clone https://github.com/twyle/user-management-service.git
+      git clone https://github.com/twyle/blog-service.git
       ```
 
   2. Navigate into the cloned repo:
 
       ```sh
-      cd user-management-service
+      cd blog-service
       ```
 
   3. Create a Virtual environment:
@@ -166,9 +170,9 @@ Here is how to set up the application locally:
 
       Head over to http://0.0.0.0:5000/apidocs
 
- <p align=center>
+ <!-- <p align=center>
   <img src="assets/videos/user-management-service-v3.gif" />
-</p>
+</p> -->
 
 ## Development
 
@@ -197,19 +201,11 @@ Here is how to set up the application locally:
         | 'api/v1/user'           | GET     | Get a user's info.          |
         | 'api/v1/users'          | GET     | List all users.             |
 
-        1. Register as a new user with a unique email address and password as well as name.(Generates a uniques token)
+        1. Register as a new author with a unique email address and password as well as name.(Generates a uniques token)
         2. Proceed to your email address and click on the link given within 24 hours to activate your account. (marks account as activated)
         3. Log into your account using your email and password. (You get a unique token for authorization)
 
-        This service uses the Postgres Database to store the user info. It uses an SQS queue to schedule the sending of account activation emails, handled by the emailer Lambda function. It also writes logs to the sqs queue to be processed by the logging lambda function.
-
-      The lambda function:
-
-      1. Image Processor (image)
-
-      ![](assets/images/image_processor.png)
-
-        This Lambda function takes in an image from the sqs queue, processes it and stores it in an S3 bucket. It then provedes the url of the stored image to the blog service.
+        This service uses the Postgres Database to store the user info. It use celery to process and upload images to AWS S3 and send emails using AWS SES.
 
   2. **Database**
 
