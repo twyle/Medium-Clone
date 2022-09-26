@@ -1,6 +1,6 @@
 # blog-service - still under development
 
-> A flask web app that enables a registered, authenticated and authorized user to create, view, edit and edit articles.
+> A flask web app that enables a registered, authenticated and authorized user to create, view, edit and edit articles. 
 
 <p align="center">
   <img title="Bandit badge" alt="Bandit badge" src="https://github.com/twyle/blog-service/actions/workflows/feature-development-workflow.yml/badge.svg" />
