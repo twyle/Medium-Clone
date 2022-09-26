@@ -65,11 +65,11 @@ jobs:
         echo FLASK_ENV=${{secrets.FLASK_ENV}} >> .env
         echo SECRET_KEY=${{secrets.SECRET_KEY}} >> .env
 
-    #     echo POSTGRES_HOST=${{secrets.POSTGRES_HOST}} >> .env
-    #     echo POSTGRES_DB=${{secrets.POSTGRES_DB}} >> .env
-    #     echo POSTGRES_PORT=${{secrets.POSTGRES_PORT}} >> .env
-    #     echo POSTGRES_USER=${{secrets.POSTGRES_USER}} >> .env
-    #     echo POSTGRES_PASSWORD=${{secrets.POSTGRES_PASSWORD}} >> .env
+        echo POSTGRES_HOST=${{secrets.POSTGRES_HOST}} >> .env
+        echo POSTGRES_DB=${{secrets.POSTGRES_DB}} >> .env
+        echo POSTGRES_PORT=${{secrets.POSTGRES_PORT}} >> .env
+        echo POSTGRES_USER=${{secrets.POSTGRES_USER}} >> .env
+        echo POSTGRES_PASSWORD=${{secrets.POSTGRES_PASSWORD}} >> .env
 
     #     echo MAIL_SERVER=${{secrets.MAIL_HOST}} >> .env
     #     echo MAIL_PORT=${{secrets.MAIL_PORT}} >> .env
@@ -148,11 +148,11 @@ jobs:
         echo FLASK_ENV=${{secrets.FLASK_ENV}} >> .env
         echo SECRET_KEY=${{secrets.SECRET_KEY}} >> .env
 
-    #     echo POSTGRES_HOST=${{secrets.POSTGRES_HOST}} >> .env
-    #     echo POSTGRES_DB=${{secrets.POSTGRES_DB}} >> .env
-    #     echo POSTGRES_PORT=${{secrets.POSTGRES_PORT}} >> .env
-    #     echo POSTGRES_USER=${{secrets.POSTGRES_USER}} >> .env
-    #     echo POSTGRES_PASSWORD=${{secrets.POSTGRES_PASSWORD}} >> .env
+        echo POSTGRES_HOST=${{secrets.POSTGRES_HOST}} >> .env
+        echo POSTGRES_DB=${{secrets.POSTGRES_DB}} >> .env
+        echo POSTGRES_PORT=${{secrets.POSTGRES_PORT}} >> .env
+        echo POSTGRES_USER=${{secrets.POSTGRES_USER}} >> .env
+        echo POSTGRES_PASSWORD=${{secrets.POSTGRES_PASSWORD}} >> .env
 
     #     echo MAIL_SERVER=${{secrets.MAIL_HOST}} >> .env
     #     echo MAIL_PORT=${{secrets.MAIL_PORT}} >> .env
