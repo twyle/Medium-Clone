@@ -2,6 +2,7 @@
 """This module declares and registers extensions."""
 from flasgger import LazyJSONEncoder, LazyString, Swagger
 from flask import request
+from flask_bcrypt import Bcrypt
 from flask_cors import CORS
 from flask_marshmallow import Marshmallow
 from flask_migrate import Migrate
@@ -11,6 +12,7 @@ cors = CORS()
 db = SQLAlchemy()
 ma = Marshmallow()
 migrate = Migrate()
+bcrypt = Bcrypt()
 
 swagger_template = {
     "swagger": "2.0",
@@ -66,3 +68,4 @@ def register_extensions(app):
     db.init_app(app)
     ma.init_app(app)
     migrate.init_app(app, db)
+    bcrypt.init_app(app)
