@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 """This module contains all the authentication, authorization and registration routes."""
 from flasgger import swag_from
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, request
+
+from .controller import handle_create_author
 
 auth = Blueprint("auth", __name__)
 
@@ -21,7 +23,7 @@ def register_admin():
 @auth.route("/register/author", methods=["POST"])
 def register_author():
     """Register an author."""
-    return jsonify({"auth": "register author"}), 200
+    return handle_create_author(request.form, request.files)
 
 
 @swag_from(
