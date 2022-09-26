@@ -10,9 +10,8 @@ from ..extensions import bcrypt, db, ma
 class User(db.Model):
     """This models a generic user."""
 
-    __tablename__ = "user"
+    __abstract__ = True
 
-    id: int = db.Column(db.Integer, primary_key=True)
     first_name: str = db.Column(db.String(100), nullable=False)
     last_name: str = db.Column(db.String(100), nullable=False)
     screen_name: str = db.Column(db.String(100), nullable=True)
@@ -48,7 +47,6 @@ class UserSchema(ma.Schema):
         """The fileds to display."""
 
         fields = (
-            "id",
             "first_name",
             "last_name",
             "screen_name",
