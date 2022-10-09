@@ -198,35 +198,27 @@ Here is how to set up the application locally:
         | 'api/v1/auth/logout'    | POST    | Logout as a logged in user. |
         | 'api/v1/auth/confirm_email'| POST | Confirm email address.      |
         | 'api/v1/auth/refresh_token'| POST | Get a new access token.     |
-
         | 'api/v1/admin'           | DELETE  | Delete a admin.              |
         | 'api/v1/admin'           | PUT     | Update admin info.           |
         | 'api/v1/admin'           | GET     | Get a admin's info.          |
         | 'api/v1/admins'          | GET     | List all admins.             |
-
         | 'api/v1/moderator'  | DELETE  | Delete a moderator.              |
         | 'api/v1/moderator'  | PUT     | Update moderator info.           |
         | 'api/v1/moderator'  | GET     | Get a moderator's info.          |
         | 'api/v1/moderators' | GET     | List all moderators.             |
-
         | 'api/v1/author'           | DELETE  | Delete a author.              |
         | 'api/v1/author'           | PUT     | Update author info.           |
         | 'api/v1/author'           | GET     | Get a author's info.          |
         | 'api/v1/authors'          | GET     | List all authors.             |
         | 'api/v1/author/follow'    | POST    | Follow an author.              |
-
         | 'api/v1/email/send_confirm_email' | POST | Send account confirmation email. |
         | 'api/v1/email/send_password_reset_email' | POST | Send password reset email. |
-
         | 'api/v1/report/author' | POST | Report an offensive author.|
         | 'api/v1/report/article' | POST | Report an offensive article.|
-
         | 'api/v1/flag/author' | POST | Flag an offensive author.|
         | 'api/v1/flag/article' | POST | Flag an offensive article.|
-
         | 'api/v1/suspend/author' | POST | Suspend an offensive author.|
         | 'api/v1/suspend/article' | POST | Suspend an offensive article.|
-
         | 'api/v1/article'           | DELETE  | Delete a article.              |
         | 'api/v1/article'           | PUT     | Update article info.           |
         | 'api/v1/article'           | GET     | Get a article's info.          |
