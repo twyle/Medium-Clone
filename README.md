@@ -188,18 +188,52 @@ Here is how to set up the application locally:
 
         This service is resposible for the registration of new users, as well as the authentication and authorization of registered users. The routes include:
 
-        | Route                   | Method  | Description                 |
-        | ------------------------| ------- |---------------------------- |
-        | 'api/v1/auth/register'  | POST    | Register a new user.        |
+        | Route                   | Method  | Description                   |
+        | ------------------------| ------- |----------------------------   |
+        | 'api/v1/auth/register/admin'    | POST | Register a new admin.    |
+        | 'api/v1/auth/register/author'   | POST | Register a new author.   |
+        | 'api/v1/auth/register/moderator'| POST | Register a new moderator.|
+        | 'api/v1/auth/reset_password'    | POST | Reset a password.        |
         | 'api/v1/auth/login'     | POST    | Login as a registered user. |
         | 'api/v1/auth/logout'    | POST    | Logout as a logged in user. |
-        | 'api/v1/auth/confirm'   | GET     | Confirm email address.      |
-        | 'api/v1/auth/send'      | POST    | Send activation email.      |
-        | 'api/v1/auth/refresh'   | GET     | Get a new access token.     |
-        | 'api/v1/user'           | DELETE  | Delete a user.              |
-        | 'api/v1/user'           | PUT     | Update user info.           |
-        | 'api/v1/user'           | GET     | Get a user's info.          |
-        | 'api/v1/users'          | GET     | List all users.             |
+        | 'api/v1/auth/confirm_email'| POST | Confirm email address.      |
+        | 'api/v1/auth/refresh_token'| POST | Get a new access token.     |
+
+        | 'api/v1/admin'           | DELETE  | Delete a admin.              |
+        | 'api/v1/admin'           | PUT     | Update admin info.           |
+        | 'api/v1/admin'           | GET     | Get a admin's info.          |
+        | 'api/v1/admins'          | GET     | List all admins.             |
+
+        | 'api/v1/moderator'  | DELETE  | Delete a moderator.              |
+        | 'api/v1/moderator'  | PUT     | Update moderator info.           |
+        | 'api/v1/moderator'  | GET     | Get a moderator's info.          |
+        | 'api/v1/moderators' | GET     | List all moderators.             |
+
+        | 'api/v1/author'           | DELETE  | Delete a author.              |
+        | 'api/v1/author'           | PUT     | Update author info.           |
+        | 'api/v1/author'           | GET     | Get a author's info.          |
+        | 'api/v1/authors'          | GET     | List all authors.             |
+        | 'api/v1/author/follow'    | POST    | Follow an author.              |
+
+        | 'api/v1/email/send_confirm_email' | POST | Send account confirmation email. |
+        | 'api/v1/email/send_password_reset_email' | POST | Send password reset email. |
+
+        | 'api/v1/report/author' | POST | Report an offensive author.|
+        | 'api/v1/report/article' | POST | Report an offensive article.|
+
+        | 'api/v1/flag/author' | POST | Flag an offensive author.|
+        | 'api/v1/flag/article' | POST | Flag an offensive article.|
+
+        | 'api/v1/suspend/author' | POST | Suspend an offensive author.|
+        | 'api/v1/suspend/article' | POST | Suspend an offensive article.|
+
+        | 'api/v1/article'           | DELETE  | Delete a article.              |
+        | 'api/v1/article'           | PUT     | Update article info.           |
+        | 'api/v1/article'           | GET     | Get a article's info.          |
+        | 'api/v1/article'           | POST    | Create an article.             |
+        | 'api/v1/articles'          | GET     | List all articles.             |
+        | 'api/v1/article/comment'   | POST    | Comment on an article.         |
+        | 'api/v1/article/like'      | POST    | Like an article.               |
 
         1. Register as a new author with a unique email address and password as well as name.(Generates a uniques token)
         2. Proceed to your email address and click on the link given within 24 hours to activate your account. (marks account as activated)

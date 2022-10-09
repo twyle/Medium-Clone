@@ -15,6 +15,7 @@ auth = Blueprint("auth", __name__)
 def register_admin():
     """Register an admin."""
     return jsonify({"auth": "register admin"}), 200
+    # handle_create_admin(request.form, request.files)
 
 
 @swag_from(
@@ -44,3 +45,36 @@ def register_moderator():
 def reset_password():
     """Reset admin password."""
     return jsonify({"auth": "reset password"}), 200
+
+
+@auth.route("/login", methods=["POST"])
+@swag_from("./docs/login_user.yml", endpoint="auth.login", methods=["POST"])
+def login():
+    # return handle_log_in_user(request.args.get("id"), request.json)
+    return jsonify({"Hello": "You are logged in"})
+
+
+@auth.route("/logout", methods=["POST"])
+@swag_from("./docs/logout_user.yml", endpoint="auth.logout", methods=["POST"])
+def logout():
+    # nullify the access token
+    # return handle_logout_user(request.args.get("id"))
+    return jsonify({"Hello": "You are logged out"})
+
+
+@auth.route("/refresh_token", methods=["POST"])
+@swag_from("./docs/refresh_token.yml", endpoint="auth.refresh", methods=["POST"])
+def refresh():
+    """Generate a refresh token."""
+    # return handle_refresh_token(get_jwt_identity())
+    return jsonify({"Hello": "Here is the refresh token"})
+
+
+@auth.route("/confirm_email", methods=["GET"])
+@swag_from("./docs/confirm.yml", endpoint="auth.confirm_email", methods=["GET"])
+def confirm_email():
+    """Handle email confirmation."""
+    # return handle_email_confirm_request(
+    #     request.args.get("id"), request.args.get("token")
+    # )
+    return jsonify({"Hello": "Email confirmed!"})
